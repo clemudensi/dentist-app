@@ -23,7 +23,7 @@ header .navbar {
 }
 
 header .navbar-default {
-  background-color: #337ab7;
+  background-color: #126753;
   border: none;
   border-radius: 0;
   padding: 10px 0;
@@ -52,7 +52,7 @@ header .navbar-brand h1 {
 /**  Footer **/
 
 footer {
-  background: #337ab7;
+  background: #126753;
   color: white;
   font-size: .8em;
   padding: 20px 0 40px 0;

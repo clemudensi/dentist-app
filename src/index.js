@@ -4,27 +4,9 @@ import _ from 'lodash';
 import AptList from './AptList';
 import AddAppointment from './AddAppointment'
 import SearchAppointments from './SearchAppointments';
-// import {get} from "jquery";
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'bootstrap/dist/css/bootstrap-theme.css';
-// import 'jquery/dist/jquery.min.js';
-// import 'bootstrap/dist/js/bootstrap.min.js';
+import axios from 'axios';
+
 require('bootstrap/dist/css/bootstrap.css');
-// require('bootstrap/dist/js/bootstrap.min.js');
-// require('jquery/dist/jquery.min.js');
-// ReactDOM.render(
-//   <App />,
-//   document.getElementById('root')
-// );
-//
-//
-// var React = require('react');
-// var ReactDOM = require('react-dom');
-// var _ = require('lodash');
-//
-// var AptList = require('./AptList');
-// var AddAppointment = require('./AddAppointment');
-// var SearchAppointments = require('./SearchAppointments');
 
 class MainInterface extends React.Component {
     constructor(props) {
@@ -43,15 +25,22 @@ class MainInterface extends React.Component {
         this.onReOrder = this.onReOrder.bind(this);
     } //getInitialState
 
-    componentDidMount(){
-        this.serverRequest = fetch(`../public/data.json`)
-            .then(result=>result.json())
-            .then(myAppointments=>this.setState({myAppointments}))
-    } //componentDidMount
+    componentDidMount() {
+        let that = this;
+        let myAppointments = 'https://dentist-directory-1c7d3.firebaseio.com/dentist.json';
+        axios.get(myAppointments)
+            .then( (response)=> {
+                console.log(response.data)
+                that.setState({myAppointments: response.data});
+            })
+            .catch(function (error) {
+                console.error(error);
+            });
+    }
 
     componentWillUnmount() {
         this.serverRequest.abort();
-    } //componentWillUnmount
+    }
 
     deleteMessage(item) {
         let allApts = this.state.myAppointments;
@@ -70,10 +59,8 @@ class MainInterface extends React.Component {
     } //toggleAddDisplay
 
     addItem (tempItem) {
-        let tempApts=this.state.myAppointments;
-        tempApts.push(tempItem);
         this.setState({
-            myAppointments: tempApts
+            myAppointments: tempItem
         });
     }
 
@@ -91,25 +78,33 @@ class MainInterface extends React.Component {
     }
 
     render() {
+
+
         let filteredApts = [];
         const orderBy = this.state.orderBy;
         const orderDir = this.state.orderDir;
         const queryText = this.state.queryText;
         const myAppointments = this.state.myAppointments;
 
-        myAppointments.map(item => {
-            if (item.petName.toLowerCase().includes(queryText) ||
-                item.ownerName.toLowerCase().includes(queryText) ||
-                item.aptDate.toLowerCase().includes(queryText) ||
-                item.aptNotes.toLowerCase().includes(queryText)
+
+        let appArr = [];
+        for (var item in myAppointments) {
+            appArr.push(myAppointments[item])
+        }
+
+        appArr.map((item, index) => {
+            if (item.name.toLowerCase().includes(queryText) ||
+                item.email.toLowerCase().includes(queryText) ||
+                item.phoneNumber.includes(queryText)
             ) {
                 filteredApts.push(item);
             }
         });
 
-        filteredApts = _.orderBy(filteredApts, item => item[orderBy].toLowerCase(), orderDir);
+        filteredApts = _.orderBy(filteredApts, item => item[orderBy], orderDir);
 
         filteredApts = filteredApts.map((item, index) => //return
+
             <AptList key = { index }
                      singleItem = { item }
                      whichItem = { item }

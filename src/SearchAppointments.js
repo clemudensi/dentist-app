@@ -33,6 +33,11 @@ class SearchAppointments extends React.Component {
 
     render() {
 
+        var decor ={
+            backgroundColor: '#126753',
+            borderColor: '#126753'
+        };
+
         return (
             <div className="row search-appointments">
               <div className="col-sm-offset-3 col-sm-6">
@@ -40,7 +45,7 @@ class SearchAppointments extends React.Component {
                   <input id="SearchApts" onChange={this.handleSearch} placeholder="Search" type="text" className="form-control" aria-label="Search Appointments" />
                   <div className="input-group-btn">
                     <button type="button" className="btn btn-primary dropdown-toggle"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort by: <span className="caret"></span></button>
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={decor}>Sort by: <span className="caret"></span></button>
                     <ul className="dropdown-menu dropdown-menu-right">
                       <li><a href="#" id="petName" onClick={this.handleSort}>Patient Name { this.isOrderBy('petName') } </a></li>
                       <li><a href="#" id="aptDate" onClick={this.handleSort}>Date { this.isOrderBy('aptDate') }</a></li>
