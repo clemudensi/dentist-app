@@ -32,7 +32,7 @@ header .navbar-default {
 /**  Navbar Brand **/
 
 header .navbar-brand {
-  background: url(../builds/app/images/wisdompetlogo.svg);
+  background: url(hospital.png);
   background-repeat: no-repeat;
   background-position: 15px 0;
 }

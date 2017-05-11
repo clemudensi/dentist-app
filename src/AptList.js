@@ -25,11 +25,14 @@ class AptList extends Component{
                 <div className="pet-info media-body">
                     <div className="pet-head">
                         <span className="pet-name">{this.props.singleItem.name}</span>
-                        <span className="apt-date pull-right">{this.props.singleItem.email}</span>
+                        <span className="apt-date pull-right">{this.props.singleItem.aptDate}</span>
                     </div>
                     <div className="owner-name"><span className="label-item">Phone number:</span>
                         {this.props.singleItem.phoneNumber}</div>
-                    <div className="apt-notes">{this.props.singleItem.aptNotes}</div>
+                    <div className="owner-name"><span className="label-item">Email:</span>
+                        {this.props.singleItem.email}</div>
+                    <div className="apt-notes"><span className="label-item">Apt Notes:</span>
+                        {this.props.singleItem.aptNotes}</div>
                 </div>
             </li>
         ) // return

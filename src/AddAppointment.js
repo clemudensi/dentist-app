@@ -22,9 +22,9 @@ class AddAppointment extends React.Component {
             name: this.refs.inputName.value,
             phoneNumber: this.refs.inputPhoneNumber.value,
             email: this.refs.inputEmail.value ,
+            aptNotes: this.refs.inputAptNotes.value,
+            aptDate: this.refs.inputAptDate.value + ' ' + this.refs.inputAptTime.value,
         };
-
-        console.log('TEMPP', tempApt);
 
         this.props.addApt(tempApt);
         ev.target.reset();
@@ -85,6 +85,13 @@ class AddAppointment extends React.Component {
                                 <input type="text" className="form-control"
                                        id="aptDate" ref="inputEmail" />
                             </div>
+                            <div className="form-group">
+                                <label className="col-sm-2 control-label">Date</label>
+                                <div className="col-sm-4">
+                                    <input type="date" className="form-control"
+                                           id="aptDate" ref="inputAptDate" />
+                                </div>
+                            </div>
                             <label className="col-sm-2 control-label">Time</label>
                             <div className="col-sm-4">
                                 <input type="time" className="form-control"
@@ -102,11 +109,12 @@ class AddAppointment extends React.Component {
                         <div className="form-group">
                             <div className="col-sm-offset-2 col-sm-10">
                                 <button type="submit" className="btn btn-primary pull-right" >Add Appointment</button>
-                                <button type="button" className="btn btn-primary pull-left" >Clear Form</button>
+                                {/*<button type="button" className="btn btn-primary pull-left" >Clear Form</button>*/}
+                                <button type="button" className="btn btn-danger pull-left" onClick={this.toggleAptDisplay}>Close</button>
                             </div>
                             <div className="clearfix"></div>
                             <div className="col-sm-offset-2 col-sm-10 padding-top">
-                                {/*<button type="button" className="btn btn-danger pull-left" onClick={this.toggleAptDisplay}>Close</button>*/}
+
                             </div>
                         </div>
                     </form>
