@@ -13,6 +13,7 @@
     "lodash": "latest",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-firebase": "^2.2.5",
     "react-router-dom": "^4.1.1",
     "tcomb-form": "^0.9.16"
   },

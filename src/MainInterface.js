@@ -35,7 +35,7 @@
 // );
 // =======
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import _ from 'lodash';
 import AptList from './AptList';
 import AddAppointment from './AddAppointment'
