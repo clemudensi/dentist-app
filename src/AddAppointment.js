@@ -68,15 +68,15 @@ class AddAppointment extends React.Component {
                         <div className="form-group">
                             <label className="col-sm-2 control-label">Patient Name</label>
                             <div className="col-sm-10">
-                                <input type="text" className="form-control"
-                                       id="petName" ref="inputName" placeholder="Patients Name" />
+                                <input type="text" className="form-control validate"
+                                       id="petName" ref="inputName" placeholder="Patients Name" required />
                             </div>
                         </div>
                         <div className="form-group">
                             <label className="col-sm-2 control-label">Phone number</label>
                             <div className="col-sm-10">
-                                <input type="text" className="form-control"
-                                       id="petOwner" ref="inputPhoneNumber" placeholder="Phone number" />
+                                <input type="text" className="form-control validate"
+                                       id="petOwner" ref="inputPhoneNumber" placeholder="Phone number" required/>
                             </div>
                         </div>
                         <div className="form-group">

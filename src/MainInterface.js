@@ -66,9 +66,21 @@ class MainInterface extends React.Component {
         let myAppointments = 'https://dentist-directory-1c7d3.firebaseio.com/dentist.json';
         axios.get(myAppointments)
             .then( (response)=> {
-                console.log(response.data)
-                that.setState({myAppointments: response.data});
+                console.log(response.data);
+                let appointment = {};
+                let all = [];
+                let apps = response.data;
+                for (var prop in apps){
+                    appointment.key = prop;
+                    for (var index in apps[prop]){
+                        appointment[index] = apps[prop][index];
+                    }
+                    console.log(appointment);
+                    all.push(appointment);
+                }
+                that.setState({myAppointments: all});
             })
+
             .catch(function (error) {
                 console.error(error);
             });
@@ -144,7 +156,8 @@ class MainInterface extends React.Component {
             <AptList key = { index }
                      singleItem = { item }
                      whichItem = { item }
-                     onDelete={ this.deleteMessage } />); //filteredApts.map
+                     onDelete={ this.deleteMessage } />
+        ); //filteredApts.map
         return (
             <div className="interface">
                 <AddAppointment
