@@ -2,11 +2,11 @@
  * Created by SLEEK on 5/12/2017.
  */
 import React from 'react';
-import './css/animate.css';
+import '../css/animate.css';
 import './css/style.css';
 import './css/swipebox.css';
 import './css/font-awesome.css';
-import Navlink from "./Navlink";
+import Navlink from "./header-links/Navlink";
 
 
 class Banner extends React.Component {

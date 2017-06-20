@@ -34,7 +34,7 @@ class Contact extends React.Component {
                             </div>
                             <div className="address wow fadeInLeft animated" data-wow-delay=".5s">
                                 <h5>Email:</h5>
-                                <p><i className="glyphicon glyphicon-envelope"></i> <a href="mailto:info@example.com">mail@example.com</a></p>
+                                <p><i className="glyphicon glyphicon-envelope"></i> <a href="mailto:info@example.com">cklemmzy@gmail.com</a></p>
                             </div>
                         </div>
                         <div className="clearfix"></div>

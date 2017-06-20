@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {auth, googleAuthProvider} from './services/firebase';
+import {auth, googleAuthProvider} from '../services/firebase';
 
 
 class Header extends Component {

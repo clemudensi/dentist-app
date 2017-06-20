@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import {HashRouter, Route} from 'react-router-dom';
 
 import MainInterface from './MainInterface'
-import Login from './Login';
-import Header from './Header'
-import {auth, googleAuthProvider, emailAuthProvider, usersRef} from './services/firebase';
+import Login from '../Login';
+import Header from '../header-links/Header'
+import {auth, googleAuthProvider, emailAuthProvider, usersRef} from '../services/firebase';
 
 
 

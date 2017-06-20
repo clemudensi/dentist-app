@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Banner from './Banner';
-import ABout from './About';
-import Contact from './Contact';
-import BookApt from './BookApt';
+import Banner from './web-pages/Banner';
+import ABout from './web-pages/About';
+import Contact from './web-pages/Contact';
+import BookApt from './apt-app/BookApt';
 import {HashRouter, Route, Switch, NavLink} from 'react-router-dom';
 
 
