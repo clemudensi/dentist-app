@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Banner from './web-pages/Banner';
+import Banner from './Banner';
 import ABout from './web-pages/About';
 import Contact from './web-pages/Contact';
 import BookApt from './apt-app/BookApt';
